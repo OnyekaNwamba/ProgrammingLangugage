@@ -1,5 +1,7 @@
 from sys import *
 
+tokens = []
+
 
 def open_file(filename):
     #print(filename)
@@ -15,21 +17,27 @@ def lex(fileContents):
     for char in fileContents:
         tok +=char
         if tok == " ":
-            tok = ''
+            if state = 0:
+                tok = ""
+            else:
+                tok = " "
+        elif tok == "\n":
+            tok = ""
         elif tok == "print":
-            print("found a print!")
+            tokens.append("print")
             tok = ""
         elif tok == "\"":
             if state == 0:
                 state = 1
             elif state == 1:
-                print("found a string!")
+                tokens.append("string:" + string + "\"")
                 string = ""
                 state = 0
+                tok = ""
         elif state == 1:
-            string +=char
+            string +=tok
             tok = ""
-
+    print(tokens)
 
 
 def run():
