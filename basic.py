@@ -17,7 +17,7 @@ def lex(fileContents):
     for char in fileContents:
         tok +=char
         if tok == " ":
-            if state = 0:
+            if state == 0:
                 tok = ""
             else:
                 tok = " "
